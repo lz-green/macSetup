@@ -3,8 +3,16 @@ Ansible code to build my Mac from scratch
 
 ## Introduction
 
-My objective is to fully automate macOS installation and configuration using Ansible.
+My objective is to fully automate macOS installation and configuration using Ansible. Lots of stuff in here you probably don't need/ want, and some that needs personalization for your system. 
 
+Some fun stuff, though, feel free to pick apart and try it out.
+
+## Requirements
+The various configuration files are tested on OS X Sierra (10.12). Older operating system versions may work — your mileage may vary.
+
+These are a series of scripts. Many are derived from prior works of open source, but some original URLs have been lost. Please point out any original art URLs and they will be added. I always strive to give credit to prior art authors.
+
+## Done
 I have currently implemented the following:
 
 * **macOS & Software Defaults**: Updating of plist properties for various
@@ -27,6 +35,15 @@ I have currently implemented the following:
 * **Startup Setup**: Ensures that the required items start on startup using
   [loginitems](https://github.com/OJFord/loginitems).
 * **Terminal Customisation**: Setting up the Terminal using JXA.
+
+## Install
+
+Download, *review*, then execute the script:
+
+> curl --remote-name https://github.com/bhdicaire/mac-setup/blob/master/run less mac
+> sh mac 2>&1 | tee ~/mac-setup.log
+
+Your last mac-setup run will be saved to ~/mac-setup.log. Read through it to see if you can debug the issue yourself. 
 
 ## Quick Start
 
@@ -123,6 +140,24 @@ https://github.com/fgimian/macbuild
 * [ansible-modules-plist](https://github.com/mtneug/ansible-modules-plist)
 * [legacy-common](https://github.com/osxc/legacy-common)
 * [custom-ansible-osx](https://github.com/mtneug/custom-ansible-osx)
+
+
+## Contributing
+
+Please fork, fix, enhance, and send pull requests.
+
+## Author
+
+Benoît H. Dicaire, http://github.com/BHDicaire, @BHDicaire, BH@Dicaire.com, http://BHDicaire.com/
+
+
+### About
+
+I help organizations facing difficult strategic decision-making. 
+
+I am a freelance security expert and a keynote speaker in French and English. Over the last 25 years, I have led consulting engagements for well-known companies throughout North America.
+
+I'm [available for hire](http://dicaire.com/).  I’d be pleased to discuss your requirements.
 
 
 ### Blog Posts
