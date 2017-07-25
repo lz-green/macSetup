@@ -5,7 +5,7 @@ Ansible code to build my Mac from scratch
 
 My objective is to fully automate macOS installation and configuration using Ansible. Lots of stuff in here you probably don't need/ want, and some that needs personalization for your system.
 
-Some fun stuff, though, feel free to pick apart and try it out.
+Some fun stuff, though, feel free to fork, fix, enhance, and send pull requests.
 
 ## Requirements
 The various configuration files are tested on OS X Sierra (10.12). Older operating system versions may work — your mileage may vary.
@@ -40,24 +40,44 @@ I have currently implemented the following:
 
 Download, *review*, then execute the script:
 
-curl --remote-name https://github.com/bhdicaire/mac-setup/blob/master/run less mac
-> sh mac 2>&1 | tee ~/mac-setup.log
+1. Connect an ethernet adapter to accelerate the installation thus no wifi credential is on the computer
+2. Install the current macOS version via cmd option r (internet rescue) or via a usb key.
+   a. Enable location service
+   b. Disable analytics and Siri
+   c. Skip AppleID
+   d, Create an admin user, in my case BHD
+   e. Open the App Store and update all softwares
+   f. Restart
+3. Create a second account and let’s encrypt the internal HD
+  a. Create your regular user, in my case BHDicaire
+  b. Modify login option
+    1. Display login windows as Name and Password
+    2. Disable fast user switching
+  c. Open Terminal
+  d. sudo fdesetup enable
+  e. Copy the recovery key via AirDrop
+  f. Restart
+4. Enable firmware protection
+  a. [Command] R
+  b. Utilities --> Firmware Password Utility
+  c. Restart
+5. Prepared the environment
+  a. Login as the regular user
+  b. Open Terminal
+  c. git --version
+  d. Install the command line developper tools as proposed by the Operating System :)
+  e. git --version
+  f. Open app store and login with your Apple ID
+  g. git clone https://github.com/bhdicaire/macSetup.git
+  h. cd macSetup
+  i. ./macSetup.sh
 
 Your last mac-setup run will be saved to ~/mac-setup.log. Read through it to see if you can debug the issue yourself.
 
-## Quick Start
-
-Before you get started, you may wish to perform the following steps to save
-time and ensure everything works as expected:
-
-1. Copy a Homebrew cache backup to `~/Library/Caches/Homebrew`
-2. Copy App Store apps that you have previously downloaded to `/Applications`
-3. Copy `System Automation` containing various settings and licenses to `~/Documents`
-4. Install Apple's Command Line Tools manually to avoid them being re-downloaded
-
 Now, run the following in your Terminal to use my configuration:
 
-
+curl --remote-name https://github.com/bhdicaire/mac-setup/blob/master/run less mac
+> sh mac 2>&1 | tee ~/mac-setup.log
 
 It is strongly suggested that you reboot your Mac after the first run
 of this tool.
@@ -68,6 +88,13 @@ one of your backup drives and run the following:
 ```bash
 ./extras/samples.py
 ```
+
+## Can I accelerate the process?
+
+1. Copy a Homebrew cache backup to `~/Library/Caches/Homebrew`
+2. Copy App Store apps that you have previously downloaded to `/Applications`
+3. Copy `System Automation` containing various settings and licenses to `~/Documents`
+4. Install Apple's Command Line Tools manually to avoid them being re-downloaded
 
 ## Manual Tasks
 
@@ -93,9 +120,6 @@ automate them.
 
 * **Dropbox**: Disable camera uploads
 
-
-
-
 ### Manual Licensing
 
 * **Microsoft Office**
@@ -120,9 +144,6 @@ https://github.com/fgimian/macbuild
 * [custom-ansible-osx](https://github.com/mtneug/custom-ansible-osx)
 
 
-## Contributing
-
-Please fork, fix, enhance, and send pull requests.
 
 ## Author
 
