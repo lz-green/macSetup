@@ -14,7 +14,7 @@ copy.o:	makefile
 	# cp -r ~/Library/???? ~/Dropbox/apps/macSetup/karabiner
 	# cp -r ~/Library/???? ~/Dropbox/apps/macSetup/bbedit
 	
-build.o:	makefile
+build.o: makefile
 	cp ~/Dropbox/apps/macSetup/dot ~
 	cp -r ~/Dropbox/apps/macSetup/bin ~/.bin
 	cp ~/Dropbox/apps/macSetup/Services ~/Library/Services/
