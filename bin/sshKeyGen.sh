@@ -1,0 +1,1 @@
+ssh-keygen -t ed25519 -C "BH@Dicaire.com" -f ~/.ssh/newKey
