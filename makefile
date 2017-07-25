@@ -10,6 +10,7 @@ copy.o:	makefile
 	cp ~/.bash* ~/Dropbox/apps/macSetup/dot
 	cp -r ~/.bin ~/Dropbox/apps/macSetup/bin
 	cp -r ~/Library/Services/ ~/Dropbox/apps/macSetup/Services
+	cp ~/Library/Preferences/com.apple.Terminal.plist ~/Dropbox/apps/macSetup/terminal
 	# cp -r ~/Library/???? ~/Dropbox/apps/macSetup/Marked2
 	# cp -r ~/Library/???? ~/Dropbox/apps/macSetup/karabiner
 	# cp -r ~/Library/???? ~/Dropbox/apps/macSetup/bbedit
