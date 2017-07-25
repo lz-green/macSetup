@@ -3,7 +3,7 @@ Ansible code to build my Mac from scratch
 
 ## Introduction
 
-My objective is to fully automate macOS installation and configuration using Ansible. Lots of stuff in here you probably don't need/ want, and some that needs personalization for your system. 
+My objective is to fully automate macOS installation and configuration using Ansible. Lots of stuff in here you probably don't need/ want, and some that needs personalization for your system.
 
 Some fun stuff, though, feel free to pick apart and try it out.
 
@@ -26,7 +26,7 @@ I have currently implemented the following:
   of [homebrew-cask](https://github.com/caskroom/homebrew-cask).
 * **Appstore Application Installation**: This is being performed with the use
   of [MAS](https://github.com/).  You need to login in the app ...
-* **Configuration Files & Symlinks**: Any files and folders that are to be 
+* **Configuration Files & Symlinks**: Any files and folders that are to be
   copied or symlinked, including app settings, licenses and dotfiles.
 * **Dock Configuration**: Automatic building of the Dock using
   [dockutil](https://github.com/kcrawford/dockutil).
@@ -40,10 +40,10 @@ I have currently implemented the following:
 
 Download, *review*, then execute the script:
 
-> curl --remote-name https://github.com/bhdicaire/mac-setup/blob/master/run less mac
+curl --remote-name https://github.com/bhdicaire/mac-setup/blob/master/run less mac
 > sh mac 2>&1 | tee ~/mac-setup.log
 
-Your last mac-setup run will be saved to ~/mac-setup.log. Read through it to see if you can debug the issue yourself. 
+Your last mac-setup run will be saved to ~/mac-setup.log. Read through it to see if you can debug the issue yourself.
 
 ## Quick Start
 
@@ -57,11 +57,7 @@ time and ensure everything works as expected:
 
 Now, run the following in your Terminal to use my configuration:
 
-```bash
-git clone https://github.com/fgimian/macbuild.git
-cd macbuild
-./macbuild.sh
-```
+
 
 It is strongly suggested that you reboot your Mac after the first run
 of this tool.
@@ -95,38 +91,20 @@ automate them.
 
 ### Installation & Configuration (General)
 
-* **Audio Hijack**: Start the app multiple times to dismiss welcome and mailing
-  list alerts.  You must also install Instant On to ensure the app works.
-* **Clear**: Enable iCloud
-* **Focus**: Start Focus manually as it won't initialise successfully with
-  launchd starting it for the first time.
 * **Dropbox**: Disable camera uploads
-* **Forklift**: Sidebar containing favourites and view settings
-* **World Clock**: Country selection settings
 
-### Installation & Configuration (Music Production)
 
-* **Ableton Live Suite**: Preferences including skin selection
-* **Ableton Sample Packs**: Installation of Ableton Live sounds
-* **Apple Logic Pro X**: Preferences and key bindings
-* **Steinberg Cubase Pro**: Preferences and key bindings
-* **Default Plug-in Presets**: Setup default presets for your most used VST
-  effects and instruments
+
 
 ### Manual Licensing
 
 * **Microsoft Office**
-* **Cytomic The Drop & The Glue**
-* **LennarDigital Sylenth1**
-* **Native Instruments Komplete**
-* **Novation Bass Station**
 
 ## Software Deactivation
 
 The following software should be deactivated before re-installing macOS:
 
-* **Celemony Melodyne Editor**
-* **LennarDigital Sylenth1**
+* TBD
 
 ## References
 
@@ -153,7 +131,7 @@ Benoît H. Dicaire, http://github.com/BHDicaire, @BHDicaire, BH@Dicaire.com, htt
 
 ### About
 
-I help organizations facing difficult strategic decision-making. 
+I help organizations facing difficult strategic decision-making.
 
 I am a freelance security expert and a keynote speaker in French and English. Over the last 25 years, I have led consulting engagements for well-known companies throughout North America.
 
