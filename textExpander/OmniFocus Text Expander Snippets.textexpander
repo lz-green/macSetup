@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>groupInfo</key>
+	<dict>
+		<key>expandAfterMode</key>
+		<integer>0</integer>
+		<key>groupName</key>
+		<string>OmniFocus</string>
+	</dict>
+	<key>snippetsTE2</key>
+	<array>
+		<dict>
+			<key>abbreviation</key>
+			<string>.wfc</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2012-04-08T05:47:10Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string></string>
+			<key>lastUsed</key>
+			<date>2012-04-08T05:48:03Z</date>
+			<key>modificationDate</key>
+			<date>2012-04-08T05:47:54Z</date>
+			<key>plainText</key>
+			<string>Waiting For Call from - </string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>1</integer>
+			<key>uuidString</key>
+			<string>ACA74F7E-A018-4AD7-AF6A-EF6F2ACAE7A8</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
+			<string>.ato</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2010-02-14T22:12:43Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>OF Add to MPU Outline</string>
+			<key>lastUsed</key>
+			<date>2012-09-14T04:38:01Z</date>
+			<key>modificationDate</key>
+			<date>2012-02-02T04:30:30Z</date>
+			<key>plainText</key>
+			<string>Add to MPU Show Outline -- </string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>321</integer>
+			<key>uuidString</key>
+			<string>5070EBF6-79CE-41B4-9AFF-BCA002355E45</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
+			<string>.cho</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2011-11-05T18:35:03Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>OF Check out -- </string>
+			<key>lastUsed</key>
+			<date>2012-06-19T15:51:31Z</date>
+			<key>modificationDate</key>
+			<date>2012-09-16T18:58:25Z</date>
+			<key>plainText</key>
+			<string>Check out -- </string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>36</integer>
+			<key>uuidString</key>
+			<string>106FAC3F-3E08-45C6-B8EB-D0FECA7BDFBC</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
+			<string>.cs</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2010-03-28T03:33:16Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>OF Complete Section on</string>
+			<key>lastUsed</key>
+			<date>2012-08-31T15:22:51Z</date>
+			<key>modificationDate</key>
+			<date>2012-02-02T04:30:56Z</date>
+			<key>plainText</key>
+			<string>Complete section on </string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>7</integer>
+			<key>uuidString</key>
+			<string>F1695EF9-0F4C-49D2-8D97-841405D7D515</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
+			<string>.cr</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2012-02-02T04:31:58Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>OF Conduct research</string>
+			<key>lastUsed</key>
+			<date>2012-07-06T22:48:22Z</date>
+			<key>modificationDate</key>
+			<date>2012-02-02T04:41:07Z</date>
+			<key>plainText</key>
+			<string>Conduct research re -- </string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>1</integer>
+			<key>uuidString</key>
+			<string>B77C0BDD-82D6-4CC4-8C9B-1F803C2B7A3F</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
+			<string>.pp</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2012-02-02T04:26:42Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>OF Plan Project</string>
+			<key>modificationDate</key>
+			<date>2012-02-02T04:41:35Z</date>
+			<key>plainText</key>
+			<string>Plan new project to </string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>0</integer>
+			<key>uuidString</key>
+			<string>2CF5146B-BB19-4105-9610-9BD1DD9ECCF0</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
+			<string>.pe</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2010-06-26T17:51:30Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>OF Process email</string>
+			<key>lastUsed</key>
+			<date>2012-07-27T17:24:03Z</date>
+			<key>modificationDate</key>
+			<date>2012-02-02T04:31:13Z</date>
+			<key>plainText</key>
+			<string>Process email concerning -- </string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>201</integer>
+			<key>uuidString</key>
+			<string>FA020DDC-0C58-4B04-BE43-2AB0989429CC</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
+			<string>.rte</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2009-12-02T16:29:49Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>OF Respond to e-mail regarding</string>
+			<key>lastUsed</key>
+			<date>2012-09-10T17:17:19Z</date>
+			<key>modificationDate</key>
+			<date>2012-09-16T18:58:20Z</date>
+			<key>plainText</key>
+			<string>Respond to email regarding -- </string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>210</integer>
+			<key>uuidString</key>
+			<string>646C0F36-EDE3-489C-BE48-E15853D7921D</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
+			<string>.rtri</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2009-12-04T16:48:30Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>OF Respond to Review inquiry</string>
+			<key>modificationDate</key>
+			<date>2012-09-16T18:58:34Z</date>
+			<key>plainText</key>
+			<string>Respond to Review Inquiry --</string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>0</integer>
+			<key>uuidString</key>
+			<string>DCA20598-E92A-4705-9437-1A3A045E8CEF</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
+			<string>.smr</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2012-02-02T04:38:50Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>OF Set meeting</string>
+			<key>modificationDate</key>
+			<date>2012-09-16T18:57:32Z</date>
+			<key>plainText</key>
+			<string>Set meeting with %fill:name% re</string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>0</integer>
+			<key>uuidString</key>
+			<string>57BE9740-4377-4835-B47D-6D82FCEB0880</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>groupInfo</key>
+	<dict>
+		<key>expandAfterMode</key>
+		<integer>0</integer>
+		<key>groupName</key>
+		<string>Paperless Field Guide</string>
+	</dict>
+	<key>snippetsTE2</key>
+	<array>
+		<dict>
+			<key>abbreviation</key>
+			<string>.wke</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2012-02-24T19:26:32Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>Work Expense</string>
+			<key>lastUsed</key>
+			<date>2012-09-12T14:29:12Z</date>
+			<key>modificationDate</key>
+			<date>2012-09-16T19:12:41Z</date>
+			<key>plainText</key>
+			<string>2012-%m - %filltext:name=Description% - work expense.pdf</string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>176</integer>
+			<key>uuidString</key>
+			<string>C3D03376-E1C1-4946-99FA-2D15DF98CFCB</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
+			<string>.pcheck</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2012-04-21T22:03:17Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>paycheck</string>
+			<key>lastUsed</key>
+			<date>2012-08-03T04:46:23Z</date>
+			<key>modificationDate</key>
+			<date>2012-09-03T19:36:15Z</date>
+			<key>plainText</key>
+			<string>%Y-%filltext:name=month-date% - paycheck</string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>9</integer>
+			<key>uuidString</key>
+			<string>0A0FF9FF-0376-47A6-AD5C-70F45F310607</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
+			<string>.mex</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2012-02-24T19:26:32Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>medical expense 2012</string>
+			<key>lastUsed</key>
+			<date>2012-08-03T03:58:39Z</date>
+			<key>modificationDate</key>
+			<date>2012-04-19T02:13:56Z</date>
+			<key>plainText</key>
+			<string>%Y-%m - %| - medical expense.pdf</string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>18</integer>
+			<key>uuidString</key>
+			<string>854953FD-1B8A-4789-A593-6D15DB4A44D6</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
+			<string>.arc</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2012-04-21T22:15:00Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>archive receipt</string>
+			<key>lastUsed</key>
+			<date>2012-04-21T22:16:26Z</date>
+			<key>modificationDate</key>
+			<date>2012-04-21T22:16:04Z</date>
+			<key>plainText</key>
+			<string>%Y-%m - %| - archreceipt</string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>1</integer>
+			<key>uuidString</key>
+			<string>0F2B6FA3-6E92-456D-B9E4-9C9BAD324033</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
+			<string>h2obill</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2012-03-18T19:14:39Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>water bill</string>
+			<key>lastUsed</key>
+			<date>2012-04-04T23:57:10Z</date>
+			<key>modificationDate</key>
+			<date>2012-03-18T19:15:03Z</date>
+			<key>plainText</key>
+			<string>%Y-%m - water bill</string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>2</integer>
+			<key>uuidString</key>
+			<string>CF3C9371-2B1F-453F-BC89-462DA16BCA56</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
+			<string>.ds</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2012-03-18T19:11:16Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>date stamp</string>
+			<key>lastUsed</key>
+			<date>2012-09-13T21:00:27Z</date>
+			<key>modificationDate</key>
+			<date>2012-03-18T19:12:04Z</date>
+			<key>plainText</key>
+			<string>%Y-%m-%d - </string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>117</integer>
+			<key>uuidString</key>
+			<string>C20A8F87-AB32-4099-B444-D52A68A5FCB7</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
+			<string>.dm</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2012-03-18T19:12:42Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>date stamp - month</string>
+			<key>lastUsed</key>
+			<date>2012-07-17T05:53:54Z</date>
+			<key>modificationDate</key>
+			<date>2012-03-18T19:13:09Z</date>
+			<key>plainText</key>
+			<string>%Y-%m - </string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>10</integer>
+			<key>uuidString</key>
+			<string>2DF6AAA9-427C-486F-AF39-8548D547BA0D</string>
+		</dict>
+		<dict>
+			<key>abbreviation</key>
+			<string>.dts</string>
+			<key>abbreviationMode</key>
+			<integer>0</integer>
+			<key>creationDate</key>
+			<date>2012-03-18T19:13:21Z</date>
+			<key>flags</key>
+			<integer>0</integer>
+			<key>label</key>
+			<string>date time stamp</string>
+			<key>lastUsed</key>
+			<date>2012-09-14T19:18:50Z</date>
+			<key>modificationDate</key>
+			<date>2012-07-11T04:45:22Z</date>
+			<key>plainText</key>
+			<string>%Y-%m-%d %H.%M.%S</string>
+			<key>snippetType</key>
+			<integer>0</integer>
+			<key>useCount</key>
+			<integer>65</integer>
+			<key>uuidString</key>
+			<string>71668025-AD70-44AF-B047-3884A9A121A9</string>
+		</dict>
+	</array>
+</dict>
+</plist>
