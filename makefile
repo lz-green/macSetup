@@ -5,6 +5,7 @@ backup:	copy git
 
 copy:	copy.o
 git:	git.o
+Hello:	hello.o
 
 copy.o:	makefile
 	cp ~/.bash* ~/Dropbox/apps/macSetup/dot
@@ -27,3 +28,6 @@ git.o:	makefile
 	git add -A
   git commit -m "20170725 Update"
 	git push origin master
+
+hello.o: makefile
+	echo -e “Coucou”

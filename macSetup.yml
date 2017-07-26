@@ -2,221 +2,44 @@
 - hosts: all
 
   vars:
-  
-    configure_dotfiles: yes
-    configure_sudoers: yes
-    configure_terminal: yes
-    configure_osx: yes
     home: "{{ lookup('env','HOME') }}"
+  vars_files:
+    - macSoftware.yaml
     
-    brew_cask:
-      - 1password!
-      - appzapper # uninstaller
-      - dropbox 
-      - bbedit
-      - evernote 
-      - google-chrome
-      - karabiner # Keyboard customization
-       - keka # file archiving 
-      - little-snitch # awesome outbound firewall
-      - path-finder 
+  tasks:  
+    - name: macSetup repository already exist ?
+      git: repo=https://github.com/bhdicaire/macSetup.git dest=/tmp/macSetup clone=no update=no
 
-    brew_cask-media:
-      - mp4tools
-      - makemkv
-      - handbrake
-      - vlc 
-      
-    brew_cask-dev:
-        - dash # totally sick API browser
-        - diffmerge # free visual diq
-        - fing # network diagnostics
-        - brave
-        - imageoptim # optimize images
-        - istumbler # network discovery GUI
-        - hex-fiend
-          - tower
-          - firefox 
-          - switchresx 
-         - transmission
-            
-    brew_taps:
-      - caskroom/cask
-      - caskroom/drivers
-      - homebrew/aliases
-      - homebrew/bundle
-      - homebrew/command-not-found
-      - homebrew/core
-      - homebrew/dupes
-      - homebrew/php
-      - homebrew/services
+#    - name: Copy setup
+#      git: repo=https://github.com/bhdicaire/macSetup.git dest=/tmp/macSetup state=present
 
-    dotfile_repo_username: bhdicaire # the GH repo where your dotfiles are
+    - name: Setup {{ home }} sub directories
+      file: path='{{ home }}{{ item }}' state=directory owner=bhdicaire group=staff mode=0751
+      with_items:
+        - "/bin/"
+        - "/.gitconfig/"
+    - file: path='{{ home }}/.ssh/' state=directory mode=0700
 
-    brew_apps:
-      - ack
-      - autoconf
-      - automake
-      - awscli
-      - azure-cli
-      - bash
-      - coreutils
-      - dockutil
-      - exiftool
-      - ffmpeg
-      - findutils
-      - gawk
-      - git
-      - gnu-sed
-      - gnupg2
-      - go
-      - graphicsmagick
-      - handbrake
-      - hugo
-      - imagemagick
-      - jpeg
-      - lame
-      - libassuan
-      - mas
-      - moreutils
-      - pandoc
-      - pandoc-citeproc
-      - pandoc-crossref
-      - pkg-config
-      - python
-      - python3
-      - readline
-      - rename
-      - sqlite
-      - tree
-      - webkit2png
-      - wellington
-      - wget
-      - x264
-      - xvid
-    
-      
-    brew_quicklook:
-      - qlcolorcode # Preview source code files with syntax highlighting
-      - qlimagesize  
-      - qlmarkdown # Preview Markdown files
-      - qlstephen # Preview plain text files without or with unknown file extension
-      - quicklook-json # Preview JSON files
-      - qlprettypatch # Preview .patch files
-      - quicklook-csv # Preview CSV files
-      - betterzipql # Preview archives
-      - qlimagesize # Display image size and resolution
-      - suspicious-package # Preview the contents of a standard Apple installer package
-      - quicklookase # Preview Adobe ASE Color Swatches
-      - qlvideo # Preview most types of video files, as well as their thumbnails, cover art and metadata
-       - provisionqL # Preview iOS / macOS app and provision information
+    - name: Copy opiniated bash, color palettes, git and services configuration
+      copy: src='/tmp/macSetup/bin/' dest='{{ home }}/bin/' mode=0751 directory_mode=yes
 
- mas_installed_apps: []
-mas_email: ""
-mas_password: ""
+    - copy: src='{{ item.src }}' dest='{{ item.dest }}' mode=651
+      with_items:       
+        - { src: '/tmp/macSetup/colors/', dest: '{{ home }}/Library/Colors/' }
+        - { src: '/tmp/macSetup/services/', dest: '{{ home }}//Library/Services/' }
+        - { src: '/tmp/macSetup/dot/', dest: '{{ home }}/' }
+#        - { src: '/tmp/macSetup/gitconfig', dest: '{{ home }}/.gitconfig/' }
+#        - { src: '/tmp/macSetup/ssh', dest: '{{ home }}/.ssh/' }
 
+    - name: Update homebrew & cleanup
+      homebrew: update_homebrew=yes upgrade_all=yes
+    - shell: brew cleanup
 
-  tasks:
-    
-    - name: Check Homebrew is installed
-      stat: path=/usr/local/bin/brew
-      register: brew_installed
+    - name: Install regular applications with homebrew
+      homebrew: name="{{ brew_standard }}" state=present
 
-    - name: Install Homebrew
-      shell: ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
-      when: brew_installed.stat.exists == false
+    - shell: brew cask cleanup
 
-    - name: Instal required Homebrew Taps
-      shell: brew tap {{ item }}
-      with_items: brew_taps
-
-    - name: Check homebrew-cask is installed
-      stat: path=/usr/local/bin/brew-cask.rb
-      register: brew_cask_installed
-
-    - name: Install homebrew-cask
-      shell: brew install brew-cask
-      when: brew_cask_installed.stat.exists == false
-
-    - name: Install libraries/utils with homebrew
-      homebrew: name={{ item }} state=present
-      with_items: brew_apps
-    
-    - name: Cleanup after brewing
-      shell: brew cleanup
-
-
-    ### APPZ
-
-    - name: Check for installed apps(casks)
-      shell: brew cask list | grep {{ item }}
-      register: installed_applications
-      with_items: applications
-      ignore_errors: true
-    
-    - name: Install Apps with brew-cask
-      shell: brew cask install {{ item }}
-      with_items: applications
-      when: "{{ item not in installed_applications.results|map(attribute='stdout') }}"
-
-
-
-    ### ZSH radness 
-
-    - name: Determine if zsh is default/current shell
-      shell: echo $SHELL
-      register: current_shell
-
-    - name: Enable zsh in /etc/shells
-      shell: sudo /bin/sh -c 'grep -q "{{ zsh_path }}" /etc/shells || echo "{{ zsh_path }}" >> /etc/shells'
-      when: current_shell.stdout != '/usr/local/bin/zsh'    
-      #" unbreak my syntax highlighting...
-
-    - name: Set zsh as default shell
-      shell: chsh -s {{ zsh_path }}
-      when: current_shell.stdout != '/usr/local/bin/zsh'
-      sudo: true
-
-    - name: Use GNU tools instead of osx counterparts (grep find etc) 
-      shell: echo 'export PATH=$(brew --prefix coreutils)/libexec/gnubin:$PATH' >> ~/.zshrc
-
-# Custom Terminal theme.
-- name: Get current Terminal profile.
-  shell: defaults read com.apple.terminal 'Default Window Settings'
-  register: terminal_theme
-  changed_when: false
-  always_run: yes
-
-- name: Ensure custom Terminal profile is added.
-  shell: open files/terminal/JJG-Term.terminal
-  changed_when: false
-  when: "'JJG-Term' not in terminal_theme.stdout"
-
-# TODO: This doesn't work in Yosemite. Consider a different solution?
-- name: Ensure custom Terminal profile is set as default.
-  shell: "{{ item }}"
-  with_items:
-    - defaults write com.apple.terminal 'Default Window Settings' -string JJG-Term
-    - defaults write com.apple.terminal 'Startup Window Settings' -string JJG-Term
-  changed_when: false
-  when: "'JJG-Term' not in terminal_theme.stdout"
-
-    ### OSX SETTINGS
-
-    - name: Configure System Settings
-      script: scripts/system_settings.sh
-      sudo: true
-
-
-    ## POST INSTALL STEPS / Cask gotchas
-    #
-    # require manual intervention!
-    #
-    
-    - name: Run Little Snitch Installer
-      shell: open /opt/homebrew-cask/Caskroom/little-snitch/3.5.3/Little\ Snitch\ Installer.app
-      when: "'little-snitch' in applications"
-
-    - name: Run Monolingual
-      shell: open ~/Applications/Monolingual.app
-      when: "'monolingual' in applications"
+    - name: Make template
+      make: chdir=/tmp/macSetup target=hello
+#    become: yes
