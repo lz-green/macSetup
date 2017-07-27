@@ -1,45 +1,153 @@
 ---
-- hosts: all
-
-  vars:
-    home: "{{ lookup('env','HOME') }}"
+- hosts:  localhost
   vars_files:
-    - macSoftware.yaml
-    
+    - macSoftware.yml
+
   tasks:  
-    - name: macSetup repository already exist ?
-      git: repo=https://github.com/bhdicaire/macSetup.git dest=/tmp/macSetup clone=no update=no
+  
+    - name: Copy setup
+      git: repo=https://github.com/bhdicaire/macSetup.git dest=/tmp/macSetup force=yes update=yes
+      tags: ['setup']
 
-#    - name: Copy setup
-#      git: repo=https://github.com/bhdicaire/macSetup.git dest=/tmp/macSetup state=present
-
-    - name: Setup {{ home }} sub directories
+    - file: path=/tmp/macSetup state=directory mode=0777
+      tags: ['setup']
+      
+    - name: Copy opiniated bash, color palettes, git and services configuration
       file: path='{{ home }}{{ item }}' state=directory owner=bhdicaire group=staff mode=0751
       with_items:
         - "/bin/"
         - "/.gitconfig/"
+        - "/Dropbox/"
+      tags: ['setup']
+      
     - file: path='{{ home }}/.ssh/' state=directory mode=0700
-
-    - name: Copy opiniated bash, color palettes, git and services configuration
-      copy: src='/tmp/macSetup/bin/' dest='{{ home }}/bin/' mode=0751 directory_mode=yes
-
+      tags: ['setup']
+      
+    - copy: src='/tmp/macSetup/bin/' dest='{{ home }}/bin/' mode=0751 directory_mode=yes
+      tags: ['setup']
+      
     - copy: src='{{ item.src }}' dest='{{ item.dest }}' mode=651
       with_items:       
         - { src: '/tmp/macSetup/colors/', dest: '{{ home }}/Library/Colors/' }
         - { src: '/tmp/macSetup/services/', dest: '{{ home }}//Library/Services/' }
         - { src: '/tmp/macSetup/dot/', dest: '{{ home }}/' }
-#        - { src: '/tmp/macSetup/gitconfig', dest: '{{ home }}/.gitconfig/' }
-#        - { src: '/tmp/macSetup/ssh', dest: '{{ home }}/.ssh/' }
-
-    - name: Update homebrew & cleanup
+      tags: ['setup']
+      
+    - name: DEV setup
+      file: path='{{ home }}/Dropbox/{{ item }}' state=directory owner=bhdicaire group=staff mode=0751
+      with_items:
+        - "@Inbox"
+        - "@Medium"
+        - "@Tarmac"
+        - "GIT"
+        - "Code"
+        - "@W3"
+      tags: ['dev']
+        
+    - name: Symbolic link
+      file: src='{{ home }}/Dropbox/{{ item }}' dest='{{ home }}/{{ item }}' state=link
+      with_items:
+        - "@Inbox"
+        - "@Medium"
+        - "@Tarmac"
+        - "GIT"
+        - "Code"
+        - "@W3"
+      tags: ['dev']
+    
+    - name: Install applications with homebrew
       homebrew: update_homebrew=yes upgrade_all=yes
+      tags: ['setup', 'dev']
+      
     - shell: brew cleanup
+      tags: ['setup', 'dev']
+      
+    - homebrew_tap: name="{{ item }}" state=present
+      with_items:
+        - "{{ brew_tap }}"
+      tags: ['setup']
 
-    - name: Install regular applications with homebrew
-      homebrew: name="{{ brew_standard }}" state=present
+    - homebrew: name="{{ item }}" state=present
+      with_items:
+        - "{{ brew_app }}"
+      tags: ['setup']
+  
+    - homebrew: name="{{ item }}" state=present
+      with_items:
+        - "{{ brew_dev }}"
+      tags: ['dev']
+
+    - shell: brew cleanup
+      tags: ['setup', 'dev']
+       
+    - homebrew_cask: name="{{ item }}" path="{{ brew_cask_appdir }}" state=present
+      with_items:
+        - "{{ brew_cask }}"
+      tags: ['setup']
+  
+    - homebrew_cask: name="{{ item }}" path="{{ brew_cask_appdir }}" state=present
+      with_items:
+        - "{{ brew_cask_dev }}"
+      tags: ['dev'] 
 
     - shell: brew cask cleanup
+      tags: ['setup', 'dev']
+    
+    - name: Get MAS account status
+      shell: 'mas account'
+      register: mas_account_result
+      failed_when: mas_account_result.rc > 1
+      changed_when: false
+      tags: ['setup'] b
+   
+    - name: List installed MAS apps.
+      command: mas list
+      register: mas_list
+      always_run: yes
+      changed_when: false
+      tags: ['setup'] 
+      
+    - name: Ensure configured MAS apps are installed.
+      command: mas install "{{ item.id|default(item) }}"
+      with_items: "{{ mas_installed_apps + mas_installed_app_ids }}"
+      when: "'{{ item.id|default(item) }}' not in mas_list.stdout"
+      tags: ['setup'] 
+      
+    - name: Upgrade all apps (if configured).
+      command: mas upgrade
+      when: mas_upgrade_all_apps   
+      tags: ['setup'] 
+       
+    - name: Setup MacOS default configuration
+      shell: /tmp/macSetup/macDefault.sh
+      changed_when: false
+      tags: ['setup']
+      
+    - name: Install global NPM packages.
+      npm:
+        name: "{{ item.name | default(item) }}"
+        state: "{{ item.state | default('present') }}"
+        version: "{{ item.version | default(omit) }}"
+        global: yes
+        executable: "{{ item.executable | default(omit) }}"
+      with_items: "{{ npm_packages }}"
+      tags: ['dev'] 
+      
+    - name: Install global Pip packages.
+      pip:
+        name: "{{ item.name | default(item) }}"
+        state: "{{ item.state | default('present') }}"
+        version: "{{ item.version | default(omit) }}"
+        executable: "{{ item.executable | default(omit) }}"
+      with_items: "{{ pip_packages }}"
+      tags: ['dev'] 
 
-    - name: Make template
-      make: chdir=/tmp/macSetup target=hello
-#    become: yes
+    - name: Install global Ruby gems.
+      gem:
+        name: "{{ item.name | default(item) }}"
+        state: "{{ item.state | default('present') }}"
+        version: "{{ item.version | default(omit) }}"
+        user_install: no
+        executable: "{{ item.executable | default(omit) }}"
+      with_items: "{{ gem_packages }}"
+      tags: ['dev'] 
