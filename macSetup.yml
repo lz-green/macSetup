@@ -5,7 +5,18 @@
 
   tasks:  
   
-    - name: Copy setup
+    - debug: msg="** macSetup ansible installation }} **"
+      tags: ['setup', 'dev']
+      
+    - name: Display all variables/facts known for a host
+      debug: var=hostvars[inventory_hostname] verbosity=1
+      tags: ['setup', 'dev']
+      
+    - name: Display all homebrew taps used by this installation
+      debug: msg="{{ brew_tap }}"verbosity=1
+      tags: ['setup', 'dev']
+    
+    - name: Clone or update local macSetup repository
       git: repo=https://github.com/bhdicaire/macSetup.git dest=/tmp/macSetup force=yes update=yes
       tags: ['setup']
 
@@ -30,7 +41,22 @@
       with_items:       
         - { src: '/tmp/macSetup/colors/', dest: '{{ home }}/Library/Colors/' }
         - { src: '/tmp/macSetup/services/', dest: '{{ home }}//Library/Services/' }
-        - { src: '/tmp/macSetup/dot/', dest: '{{ home }}/' }
+      tags: ['setup']
+      
+      copy: src='/tmp/macSetup/dot/{{ item }}' dest='{{ home }}/.{{ item }}' mode=651
+      with_items:
+        - bash_aliases
+        - bash_functions
+        - bash_profile
+        - bash_prompt
+        - bashrc
+        - curlrc
+        - gitconfig
+        - gitignore
+        - inputrc
+        - screenrc
+        - vimrc
+        - wgetrc
       tags: ['setup']
       
     - name: DEV setup
@@ -98,7 +124,7 @@
       register: mas_account_result
       failed_when: mas_account_result.rc > 1
       changed_when: false
-      tags: ['setup'] b
+      tags: ['setup']
    
     - name: List installed MAS apps.
       command: mas list
@@ -117,6 +143,17 @@
       command: mas upgrade
       when: mas_upgrade_all_apps   
       tags: ['setup'] 
+##################################################################################################################
+    - name: Enable bash4 in /etc/shells
+      shell: sudo /bin/sh -c 'grep -q "path" /etc/shells || echo "{{ zsh_path }}" >> /etc/shells'
+      when: current_shell.stdout != '/usr/local/bin/zsh'    
+      #" unbreak my syntax highlighting...
+
+    - name: Set zsh as default shell
+      shell: chsh -s {{ zsh_path }}
+      when: current_shell.stdout != '/usr/local/bin/zsh'
+      sudo: true
+
        
     - name: Setup MacOS default configuration
       shell: /tmp/macSetup/macDefault.sh
@@ -141,6 +178,15 @@
         executable: "{{ item.executable | default(omit) }}"
       with_items: "{{ pip_packages }}"
       tags: ['dev'] 
+      
+      
+    - name: Run Little Snitch Installer
+      shell: open /opt/homebrew-cask/Caskroom/little-snitch/3.5.3/Little\ Snitch\ Installer.app
+      when: "'little-snitch' in applications"
+
+    - name: Run Monolingual
+      shell: open ~/Applications/Monolingual.app
+      when: "'monolingual' in applications"
 
     - name: Install global Ruby gems.
       gem:

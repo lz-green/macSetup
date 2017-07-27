@@ -40,6 +40,12 @@ I have currently implemented the following:
 
 Download, *review*, then execute the script:
 
+ansible-playbook dogbert.yml -i inventory --list-tasks
+ansible-playbook dogbert.yml -i inventory --verbose
+
+elliotweiser.osx-command-line-tools
+
+
 1. Connect an ethernet adapter to accelerate the installation thus no wifi credential is on the computer
 2. Install the current macOS version via cmd option r (internet rescue) or via a usb key.
    a. Enable location service

@@ -16,6 +16,18 @@
     - git
     - gnu-sed
     - mas
+    - qlcolorcode # Preview source code files with syntax highlighting
+    - qlimagesize  
+    - qlmarkdown # Preview Markdown files
+    - qlstephen # Preview plain text files without or with unknown file extension
+    - quicklook-json # Preview JSON files
+    - qlprettypatch # Preview .patch files
+    - quicklook-csv # Preview CSV files
+    - betterzipql # Preview archives
+    - qlimagesize # Display image size and resolution
+    - suspicious-package # Preview the contents of a standard Apple installer package
+    - quicklookase # Preview Adobe ASE Color Swatches
+    - qlvideo # Preview most types of video files, as well as their thumbnails, cover art and metadata
 
  brew_dev:
     - ack
@@ -72,6 +84,7 @@
     - slack
     - sonos
     - superduper
+    - switchresx
     - terminology
     - textexpander
     - tower
@@ -92,6 +105,7 @@
     - handbrake
     - imageoptim
     - inkscape
+    - kaleidoscope
     - pacifist
 
  mas_email: ""
