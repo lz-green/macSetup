@@ -1,0 +1,28 @@
+################################################################################
+#   Information and Debug  
+################################################################################
+  
+- name: Get network information from configd
+
+  command: "scutil {{ item }}"
+  register: returned_values
+  with_items:
+    - "--dns"
+    - "--nwi"
+    - "--nc list"
+    - "--get ComputerName"
+    - "--get LocalHostName"
+    - "--get HostName"
+  
+  ignore_errors: yes
+  tags: test
+  
+  
+- name: Print returned value 
+  debug:
+    var: item.stdout
+    
+  with_items: "{{ returned_values.results }}"
+  ignore_errors: yes
+  tags: 
+    - debug

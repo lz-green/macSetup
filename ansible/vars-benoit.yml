@@ -1,0 +1,150 @@
+home: "{{ lookup('env','HOME') }}"
+
+brew_cask_appdir: /Applications
+
+brew_tap:
+  - homebrew/core
+  - homebrew/dupes
+  - caskroom/cask
+  - caskroom/drivers
+
+brew_app:
+  - bash
+  - coreutils
+  - dockutil
+  - git
+  - gnu-sed
+  - mas
+  - qlcolorcode # Preview source code files with syntax highlighting
+  - qlimagesize  
+  - qlmarkdown # Preview Markdown files
+  - qlstephen # Preview plain text files without or with unknown file extension
+  - quicklook-json # Preview JSON files
+  - qlprettypatch # Preview .patch files
+  - quicklook-csv # Preview CSV files
+  - betterzipql # Preview archives
+  - qlimagesize # Display image size and resolution
+  - suspicious-package # Preview the contents of a standard Apple installer package
+  - quicklookase # Preview Adobe ASE Color Swatches
+  - qlvideo # Preview most types of video files, as well as their thumbnails, cover art and metadata
+
+brew_dev:
+  - ack
+  - awscli
+  - azure-cli
+  - bash
+  - exiftool
+  - ffmpeg
+  - findutils
+  - gawk
+  - gnupg2
+  - go
+  - graphicsmagick
+  - handbrake
+  - hugo
+  - imagemagick
+  - jpeg
+  - lame
+  - moreutils
+  - pandoc
+  - pandoc-citeproc
+  - pandoc-crossref
+  - pkg-config
+  - python
+  - readline
+  - rename
+  - sqlite
+  - tree
+  - webkit2png
+  - wellington
+  - wget
+  - x264
+  - xvid
+
+brew_cask:
+  - 1password
+  - bartender
+  - busycal
+  - busycontacts
+  - default-folder-x
+  - dropbox
+  - google-chrome
+  - hazel
+  - houdahspot
+  - istat-menus
+  - karabiner-elements
+  - keyboard-maestro
+  - little-snitch
+  - omnifocus
+  - omnigraffle
+  - omnioutliner
+  - omnipresence
+  - path-finder
+  - slack
+  - sonos
+  - superduper
+  - switchresx
+  - terminology
+  - textexpander
+  - tower
+  - transmit
+  - vlc
+  
+brew_cask_dev:
+  - xquartz
+  - charles
+  - chronosync
+  - cleanmymac
+  - docker
+  - dupeguru
+  - expandrive
+  - fing
+  - firefox
+  - fontforge
+  - handbrake
+  - imageoptim
+  - inkscape
+  - kaleidoscope
+  - pacifist
+  
+mas_email: ""
+mas_password: ""
+mas_signin_dialog: no
+brew_appstore:
+  - { id: 1124077199, name: "Paws for Trello (2.2.2)" }
+  - { id: 918858936, name: "Airmail 3 (3.3.2)" }
+  - { id: 824171161, name: "Affinity Designer (1.5.5)" }
+  - { id: 964258399, name: "BusyContacts (1.1.9)" }
+  - { id: 736189492, name: "Notability (2.5.1)" }
+  - { id: 944654199, name: "Tree 2 (2.0.3)" }
+  - { id: 557168941, name: "Tweetbot (2.5.1)" }
+  - { id: 924726344, name: "Deliveries (3.0.3)" }
+  - { id: 442168834, name: "SiteSucker (2.10.4)" }
+  - { id: 655527594, name: "Oyster (1.4)" }
+  - { id: 509641724, name: "Trickster (2.6)" }
+  - { id: 715394237, name: "Condense (1.61)" }
+  - { id: 1199660222, name: "Interact Scratchpad (1.0.4)" }
+  - { id: 404167677, name: "IP Scanner Pro (3.58)" }
+  - { id: 823766827, name: "OneDrive (17.3.6919)" }
+  - { id: 413965349, name: "Soulver (2.6.2)" }
+  - { id: 639764244, name: "Xee³ (3.5.2)" }
+  - { id: 979561272, name: "Just Press Record (1.4.3)" }
+  - { id: 588726889, name: "ReadKit (2.5.2)" }
+  - { id: 603637384, name: "Name Mangler 3 (3.4)" }
+  - { id: 1055511498, name: "Day One (2.3.4)" }
+  - { id: 411643860, name: "DaisyDisk (4.4)" }
+  - { id: 1090488118, name: "Gemini 2 (2.3.6)" }
+  - { id: 413857545, name: "Divvy (1.5.1)" }
+  - { id: 409183694, name: "Keynote (7.2)" }
+  - { id: 409907375, name: "Remote Desktop (3.9)" }
+  - { id: 446107677, name: "Screens (3.8.7)" }
+  
+npm_packages:
+  - gulp
+  - gulp-svg2png
+  
+pip_packages:
+   - gulp
+   
+gem_packages:
+  - gulp     

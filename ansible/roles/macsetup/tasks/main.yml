@@ -1,0 +1,17 @@
+# This is the main task list for the role
+---
+# Homebrew taps
+- name: Brew Taps
+  include: homebrew_tap.yml
+
+# Homebrew packages
+- name: Brew Packages
+  include: homebrew.yml
+
+- name: Brew Casks
+  include: homebrew_cask.yml
+  
+# OSX scutil interface
+- name: Configd host identification
+  include: osx_configd.yml
+...

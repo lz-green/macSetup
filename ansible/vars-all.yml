@@ -1,0 +1,14 @@
+home:
+brew_cask_appdir:
+brew_tap:
+brew_app:
+brew_dev:
+brew_cask:
+brew_cask_dev:  
+mas_email: ""
+mas_password: ""
+mas_signin_dialog: no
+brew_appstore:
+npm_packages:
+pip_packages:
+gem_packages:

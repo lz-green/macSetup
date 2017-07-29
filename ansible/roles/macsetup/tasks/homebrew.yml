@@ -1,0 +1,12 @@
+# This task will install all applications in the variable `brew_app`.
+
+- name: Install a brew application
+# TODO: Add a lookup for defining install_options  
+
+  homebrew: 
+    name: "{{ item }}"
+    state: present
+    # install_options: ""
+  with_items:
+    - "{{ brew_app }}"
+  tags: software

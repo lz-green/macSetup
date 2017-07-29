@@ -1,0 +1,13 @@
+# This task will install all casks in the variable `brew_cask`.
+
+- name: Install a brew application (Cask)
+# TODO: Add a lookup for defining install_options  
+
+  homebrew_cask: 
+    name: "{{ item }}"
+    state: present
+    # install_options: ""
+  with_items:
+    - "{{ brew_cask }}"
+  
+  tags: software

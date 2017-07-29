@@ -1,0 +1,14 @@
+# Playbook to run the macsetup role
+---
+- hosts: macsetup
+  
+  vars_files: 
+    - vars-tests.yml
+
+- name: Mac software installation
+  include: setup-software.yml
+  
+- name: Mac system preparation
+  include: setup-sysprep.yml
+  
+...

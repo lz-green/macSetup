@@ -1,0 +1,16 @@
+# This task will install all taps in the variable `brew_tap`.
+
+- name: Install a brew tap
+# TODO: Add a lookup for defining tap url 
+
+  homebrew_tap: 
+    name: "{{ item }}"
+    state: present
+    # url: ""
+  with_items:
+    - "{{ brew_tap }}"
+  
+  tags: software
+  
+  # If the tap list is empty an error is raised. Ignore error here for silent ops
+  ignore_errors: yes

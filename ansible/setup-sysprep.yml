@@ -1,0 +1,16 @@
+# Playbook to run the macsetup role
+---
+- name: Mac system preparation (sysprep))
+  
+  hosts: macsetup
+  
+  # Pre flight actions
+  pre_tasks:
+      
+  # List roles
+  roles:
+    - { role: macsetup }
+     
+  # Post flight actions
+  post_tasks:
+...

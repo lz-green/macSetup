@@ -1,0 +1,15 @@
+# This task will get system configd settings.
+# man scutil
+
+# If True, explicitly deny the creation.
+#   Default: True
+# scutil_deny_new_interfaces_on_locked_screen == True
+
+- name: Deny the creation of a network interface when screen is locked.
+  command: scutil --allow-new-interfaces no
+  become: True
+  
+  tags:
+    - hardening
+  when: 
+    scutil_deny_new_interfaces_on_locked_screen == True
