@@ -1,25 +1,16 @@
+do_extra_debug: true
+
 home: "{{ lookup('env','HOME') }}"
-
 brew_cask_appdir: /Applications
-
 brew_tap:
-  - homebrew/core
-  - homebrew/dupes
-  - caskroom/cask
-  - caskroom/drivers
 brew_app:
-  - git
 brew_dev:
-  - wget
 brew_cask:
-  - vlc
 brew_cask_dev:
-  - handbrake
 mas_email: ""
 mas_password: ""
 mas_signin_dialog: no
 brew_appstore:
-  - { id: 823766827, name: "OneDrive (17.3.6919)" }  
 npm_packages: 
 pip_packages:
 gem_packages:

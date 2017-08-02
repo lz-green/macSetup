@@ -10,6 +10,5 @@ do_sysprep: false
 # Tasks includes security sections
 do_security_check: false
 
-
-# Deny the creation of a network interface when screen is locked. (osx_configd.yml) [hardening]
-scutil_deny_new_interfaces_on_locked_screen: True
+# Tasks for debug purposes
+do_extra_debug: false

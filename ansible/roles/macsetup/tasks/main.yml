@@ -1,7 +1,9 @@
 # This is the main task list for the role
 ---
   
-
+################################################################################
+#   Homebrew 
+################################################################################
   
 # Homebrew Update
 - name: Brew Update
@@ -33,13 +35,30 @@
   include: homebrew/homebrew_cleanup.yml
   when: do_application_cleanup | bool
   
+################################################################################
+#   OSX Configuration 
+################################################################################
+  
 # OSX scutil interface
 - name: Configd host identification
   include: osx_security/osx_configd.yml
   when: do_sysprep | bool
   
+################################################################################
+#   OSX Security
+################################################################################
+  
 # OSX launchctl interface
 - name: launchctl information gathering
   include: osx_security/osx_launchctl_check.yml
   when: do_security_check | bool
+  
+  
+################################################################################
+#   Debug
+################################################################################
+
+- name: Debug tasks
+  include: extra/debug.yml
+  when: do_extra_debug | bool  
 ...

@@ -10,16 +10,16 @@
 
   command: "csrutil status"
   register: status
-  
-  ignore_errors: no
-  tags: 
-    - test
-  
+
+- name: Raise error on status
+  fail:
+    msg: "The system integrity proteciton is currently enabled!"
+  when: '"enabled" in status.stdout'
   
 - name: Print the current status 
   debug:
-    var: status.results
+    var: status
     
   ignore_errors: no
-  tags: 
+  tags:
     - debug

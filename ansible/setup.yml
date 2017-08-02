@@ -3,15 +3,22 @@
 - hosts: macsetup
   
   vars:
+    # Section Flafs:
+    # role/macsetup/defaults/main.yml
+    # refer to that file to define your vars-files include below.
+    # these are used to activate sections of the role
     - do_application_install: false
+    
+    # Section variables:
+    # role/macsetup/vars/main.yml
+    # refer to that file to define your vars-files include below
+    # these are the variables used be defaut for section's variables
+    - scutil_deny_new_interfaces_on_locked_screen: True
   
-  vars_files: 
+  vars_files:
+    # Load your setup configuration:
     - vars-tests.yml
   
   roles:
-    - { role: macsetup, do_security_check: true }
-    #- { role: macsetup, do_sysprep: true }
-    #- { role: macsetup, do_application_install: true, brew_app: "", brew_cask: "", brew_tap: "" }
-    #- { role: macsetup, do_application_update: true, do_application_cleanup: true }
-  
+    - { role: macsetup }
 ...
