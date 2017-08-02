@@ -2,5 +2,33 @@
 
 do_security_launchctl_launchdaemons_system_unload: true
 launchctl_launchdaemons_system_unload:
-  - "/System/Library/LaunchDaemons/com.apple.wifivelocityd.plist"
-  - "/System/Library/LaunchDaemons/com.apple.apsd.plist"
+  - /System/Library/LaunchDaemons/com.apple.wifivelocityd.plist
+  - /System/Library/LaunchDaemons/com.apple.apsd.plist
+  - /System/Library/LaunchDaemons/com.apple.AirPlayXPCHelper.plist
+  - /System/Library/LaunchDaemons/com.apple.ReportCrash.Root.plist
+  - /System/Library/LaunchDaemons/com.apple.airplaydiagnostics.server.mac.plist
+  - /System/Library/LaunchDaemons/com.apple.airport.wps.plist
+  - /System/Library/LaunchDaemons/com.apple.appleseed.fbahelperd.plist
+  - /System/Library/LaunchDaemons/com.apple.applessdstatistics.plist
+  - /System/Library/LaunchDaemons/com.apple.biokitaggdd.plist
+  - /System/Library/LaunchDaemons/com.apple.captiveagent.plist
+  - /System/Library/LaunchDaemons/com.apple.findmymac.plist
+  - /System/Library/LaunchDaemons/com.apple.findmymacmessenger.plist
+  - /System/Library/LaunchDaemons/com.apple.noticeboard.state.plist
+  - /System/Library/LaunchDaemons/com.apple.notifyd.plist
+  - /System/Library/LaunchDaemons/com.apple.remotepairtool.plist
+  - /System/Library/LaunchDaemons/com.apple.storagekitd.plist
+  - /System/Library/LaunchDaemons/com.apple.storeaccountd.daemon.plist
+  - /System/Library/LaunchDaemons/com.apple.storeagent.daemon.plist
+  - /System/Library/LaunchDaemons/com.apple.storeassetd.daemon.plist
+  - /System/Library/LaunchDaemons/com.apple.touchbar.user-device.plist
+  - /System/Library/LaunchDaemons/tftp.plist
+  - /System/Library/LaunchDaemons/telnet.plist
+  - /System/Library/LaunchDaemons/finger.plist
+  - /System/Library/LaunchDaemons/ftp.plist
+  - /System/Library/LaunchDaemons/ntalk.plist
+  - /System/Library/LaunchDaemons/org.apache.httpd.plist
+  - /System/Library/LaunchDaemons/org.cups.cups-lpd.plist
+  - /System/Library/LaunchDaemons/org.cups.cupsd.plist
+  - /System/Library/LaunchDaemons/org.net-snmp.snmpd.plist
+  - /System/Library/LaunchDaemons/org.openldap.slapd.plist

@@ -4,6 +4,5 @@
 scutil_deny_new_interfaces_on_locked_screen: True
 
 
-# Unload these system launch daemonsL
-launchctl_launchdaemons_system_unload: 
-  - ""
+# Unload these system launch daemons
+# launchctl_launchdaemons_system_unload: 

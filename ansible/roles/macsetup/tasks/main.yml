@@ -55,7 +55,7 @@
   
 # OSX launchctl interface
 - name: launchctl unload launch deamons (System Integroty Protection disabled)
-  include: osx_security/osx_launchctl_check.yml
+  include: osx_security/osx_launchctl.yml
   when: do_security_launchctl_launchdaemons_system_unload | bool
   
 ################################################################################
