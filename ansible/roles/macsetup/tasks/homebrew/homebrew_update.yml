@@ -1,0 +1,4 @@
+# This task will update homebrew installation`.
+
+- name: Update homebrew environment   
+  homebrew: update_homebrew=yes upgrade_all=yes

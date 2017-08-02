@@ -1,18 +1,9 @@
 # Playbook to run the macsetup role
 
-- name: Mac base system configuration (sysprep)
+- name: Mac security configuration (security)
   
   hosts: macsetup
   
-  # Load variables from files
-  var_files:
-  
-  # Pre flight actions
-  pre_tasks:
-  
   # List roles
   roles:
-     - { role: macsetup, tags: ["security"] }
-  
-  # Post flight actions
-  post_tasks:
+     - { role: macsetup, do_security_check: true }

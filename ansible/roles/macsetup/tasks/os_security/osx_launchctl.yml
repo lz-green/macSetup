@@ -1,0 +1,40 @@
+# This task will get systemsetup settings.
+# man launchctl https://developer.apple.com/legacy/library/documentation/Darwin/Reference/ManPages/man1/launchctl.1.html
+
+# DESCRIPTION
+#      launchctl interfaces with launchd to load, unload daemons/agents and generally control launchd.
+#      launchctl supports taking subcommands on the command line, interactively or even redirected from stan-dard standard
+#      dard input.  These commands can be stored in $HOME/.launchd.conf or /etc/launchd.conf to be read at the
+#      time launchd starts.
+
+# ~/Library/LaunchAgents         Per-user agents provided by the user.
+# /Library/LaunchAgents          Per-user agents provided by the administrator.
+# /Library/LaunchDaemons         System wide daemons provided by the administrator.
+# /System/Library/LaunchAgents   Mac OS X Per-user agents.
+# /System/Library/LaunchDaemons  Mac OS X System wide daemons.
+
+
+
+#   https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/Introduction.html
+#   https://developer.apple.com/library/content/documentation/MacOSX/Conceptual/BPSystemStartup/Chapters/CreatingLaunchdJobs.html
+#   https://developer.apple.com/library/content/technotes/tn2083/_index.html#//apple_ref/doc/uid/DTS10003794
+
+
+# launchctl list | grep -v ^-
+# launchctl print user
+# launchctl print system
+
+# root# launchctl unload /System/Library/LaunchDaemons/com.apple.wifivelocityd.plist
+# /System/Library/LaunchDaemons/com.apple.wifivelocityd.plist: Operation not permitted while System Integrity Protection is engaged
+
+#   https://support.apple.com/en-ca/HT204899
+# https://www.howtogeek.com/230424/how-to-disable-system-integrity-protection-on-a-mac-and-why-you-shouldnt/
+
+#   defaults read | less
+#   Useless:
+#   defaults write com.apple.wifivelocityd.plist Disabled -bool YES
+#   defaults write com.apple.mobileassetd.plist Disabled -bool YES
+
+
+# csrutil disable
+# csrutil enable

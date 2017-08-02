@@ -2,6 +2,9 @@
 ---
 - hosts: macsetup
   
+  vars:
+    - do_application_install: false
+  
   vars_files: 
     - vars-tests.yml
 

@@ -1,0 +1,25 @@
+# This task will get the current launchclt settings.
+
+# csrutil status
+
+################################################################################
+#   Information
+################################################################################
+  
+- name: Get the current System Integrity Protection Status
+
+  command: "csrutil status"
+  register: status
+  
+  ignore_errors: no
+  tags: 
+    - test
+  
+  
+- name: Print the current status 
+  debug:
+    var: status.results
+    
+  ignore_errors: no
+  tags: 
+    - debug

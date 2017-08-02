@@ -1,17 +1,45 @@
 # This is the main task list for the role
 ---
+  
+
+  
+# Homebrew Update
+- name: Brew Update
+  include: homebrew_update.yml
+  when: do_application_update | bool
+  
+# Homebrew taps check
+- name: Brew Taps Vabiables
+  include: homebrew_tap_check.yml
+  when: do_application_install_check | bool  
+  
 # Homebrew taps
 - name: Brew Taps
   include: homebrew_tap.yml
-
+  when: do_application_install | bool
+  
 # Homebrew packages
 - name: Brew Packages
   include: homebrew.yml
+  when: do_application_install | bool
 
+# Homebrew casks
 - name: Brew Casks
   include: homebrew_cask.yml
+  when: do_application_install | bool
+  
+# Homebrew Cleanup
+- name: Brew Cleanup
+  include: homebrew_cleanup.yml
+  when: do_application_cleanup | bool
   
 # OSX scutil interface
 - name: Configd host identification
   include: osx_configd.yml
+  when: do_sysprep | bool
+  
+# OSX launchctl interface
+- name: launchctl information gathering
+  include: osx_launchctl_check.yml
+  when: do_security_check | bool
 ...

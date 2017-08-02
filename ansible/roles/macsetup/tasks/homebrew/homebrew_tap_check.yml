@@ -1,0 +1,6 @@
+# This task will display taps defined in the tap variable.
+
+- name: Display all homebrew taps used by this installation
+  debug: 
+    msg: "{{ brew_tap }}"
+    verbosity: 1
