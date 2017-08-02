@@ -1,16 +1,6 @@
-do_extra_debug: true
+# do_extra_debug: true
 
-home: "{{ lookup('env','HOME') }}"
-brew_cask_appdir: /Applications
-brew_tap:
-brew_app:
-brew_dev:
-brew_cask:
-brew_cask_dev:
-mas_email: ""
-mas_password: ""
-mas_signin_dialog: no
-brew_appstore:
-npm_packages: 
-pip_packages:
-gem_packages:
+do_security_launchctl_launchdaemons_system_unload: true
+launchctl_launchdaemons_system_unload:
+  - "/System/Library/LaunchDaemons/com.apple.wifivelocityd.plist"
+  - "/System/Library/LaunchDaemons/com.apple.apsd.plist"

@@ -38,3 +38,9 @@
 
 # csrutil disable
 # csrutil enable
+
+- name: Unload system daemons (system integrity protection disabled required)
+  command: launchctl unload -w {{ items}}
+  become: True
+  with_items:
+    - "{{ launchctl_launchdaemons_system_unload }}"

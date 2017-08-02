@@ -9,6 +9,7 @@ do_sysprep: false
 
 # Tasks includes security sections
 do_security_check: false
+do_security_launchctl_launchdaemons_system_unload: false
 
 # Tasks for debug purposes
 do_extra_debug: false

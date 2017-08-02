@@ -2,3 +2,8 @@
 
 # Deny the creation of a network interface when screen is locked. (osx_configd.yml) [hardening]
 scutil_deny_new_interfaces_on_locked_screen: True
+
+
+# Unload these system launch daemonsL
+launchctl_launchdaemons_system_unload: 
+  - ""
