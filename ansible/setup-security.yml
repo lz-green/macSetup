@@ -1,9 +1,0 @@
-# Playbook to run the macsetup role
-
-- name: Mac security configuration (security)
-  
-  hosts: macsetup
-  
-  # List roles
-  roles:
-     - { role: macsetup, do_security_check: true }

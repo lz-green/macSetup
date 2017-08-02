@@ -1,4 +1,15 @@
-#
+# Tasks includes software sections
+do_application_install: false
+do_application_install_check: false
+do_application_update: false
+do_application_cleanup: false
+
+# Tasks includes sysprep sections
+do_sysprep: false
+
+# Tasks includes security sections
+do_security_check: false
+
 
 # Deny the creation of a network interface when screen is locked. (osx_configd.yml) [hardening]
 scutil_deny_new_interfaces_on_locked_screen: True

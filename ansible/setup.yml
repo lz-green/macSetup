@@ -7,11 +7,11 @@
   
   vars_files: 
     - vars-tests.yml
-
-- name: Mac software installation
-  include: setup-software.yml
   
-- name: Mac system preparation
-  include: setup-sysprep.yml
+  roles:
+    - { role: macsetup, do_security_check: true }
+    #- { role: macsetup, do_sysprep: true }
+    #- { role: macsetup, do_application_install: true, brew_app: "", brew_cask: "", brew_tap: "" }
+    #- { role: macsetup, do_application_update: true, do_application_cleanup: true }
   
 ...
